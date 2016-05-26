@@ -34,7 +34,7 @@ public class Alarm {
         return alarmOn;
     }
 
-    public static Alarm withSensor(Sensor sensor, SafetyRange safetyRange) {
+    public static Alarm withSensorAndSafetyRange(Sensor sensor, SafetyRange safetyRange) {
         return new Alarm(sensor, safetyRange);
     }
 
