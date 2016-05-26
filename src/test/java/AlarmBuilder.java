@@ -5,14 +5,18 @@ public class AlarmBuilder {
     private FakeSensor sensor;
     private SafetyRange safetyRange;
 
-    public void withSensor(FakeSensor sensor) {
+    public AlarmBuilder withSensor(FakeSensor sensor) {
 
         this.sensor = sensor;
+
+        return this;
     }
 
-    public void withSafetyRange(SafetyRange safetyRange) {
+    public AlarmBuilder withSafetyRange(SafetyRange safetyRange) {
 
         this.safetyRange = safetyRange;
+
+        return this;
     }
 
     public Alarm build() {

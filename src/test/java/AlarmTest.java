@@ -48,10 +48,10 @@ public class AlarmTest {
 
         AlarmBuilder builder = new AlarmBuilder();
 
-        builder.withSensor(FakeSensor.reading(readings));
-        builder.withSafetyRange(new SafetyRange(15, 25));
-
-        Alarm alarm = builder.build();
+        Alarm alarm = builder
+            .withSensor(FakeSensor.reading(readings))
+            .withSafetyRange(new SafetyRange(15, 25))
+            .build();
 
         alarm.check();
         alarm.check();
