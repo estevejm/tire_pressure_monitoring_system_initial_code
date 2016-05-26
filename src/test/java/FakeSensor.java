@@ -1,9 +1,9 @@
-import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
+import tddmicroexercises.tirepressuremonitoringsystem.PressureSensor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeSensor extends Sensor{
+public class FakeSensor extends PressureSensor {
 
     private final List<Integer> readings;
     private int index;

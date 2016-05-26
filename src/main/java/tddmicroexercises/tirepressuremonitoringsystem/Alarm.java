@@ -4,16 +4,16 @@ public class Alarm {
     private final double LowPressureThreshold = 17;
     private final double HighPressureThreshold = 21;
 
-    private Sensor sensor;
+    private PressureSensor pressureSensor;
 
     private boolean alarmOn = false;
 
     public Alarm() {
-        this(new Sensor());
+        this(new PressureSensor());
     }
 
-    private Alarm(Sensor sensor) {
-        this.sensor = sensor;
+    private Alarm(PressureSensor pressureSensor) {
+        this.pressureSensor = pressureSensor;
     }
 
     public void check() {
@@ -25,14 +25,14 @@ public class Alarm {
     }
 
     protected double getPsiPressureValue() {
-        return sensor.popNextPressurePsiValue();
+        return pressureSensor.popNextPressurePsiValue();
     }
 
     public boolean isAlarmOn() {
         return alarmOn;
     }
 
-    public static Alarm withSensor(Sensor sensor) {
-        return new Alarm(sensor);
+    public static Alarm withSensor(PressureSensor pressureSensor) {
+        return new Alarm(pressureSensor);
     }
 }

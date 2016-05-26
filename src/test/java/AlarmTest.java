@@ -1,6 +1,5 @@
 import org.junit.Test;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
-import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 
 import java.util.ArrayList;
 import java.util.List;
