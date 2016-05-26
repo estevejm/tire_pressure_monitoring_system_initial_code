@@ -13,15 +13,15 @@ public class Alarm {
     }
 
     public void check() {
-        double psiPressureValue = getNextReading();
+        double reading = getNextReading();
 
-        if (isSafe(psiPressureValue)) {
+        if (isSafe(reading)) {
             alarmOn = true;
         }
     }
 
-    private boolean isSafe(double psiPressureValue) {
-        return psiPressureValue < LowPressureThreshold || HighPressureThreshold < psiPressureValue;
+    private boolean isSafe(double reading) {
+        return reading < LowPressureThreshold || HighPressureThreshold < reading;
     }
 
     protected double getNextReading() {
