@@ -11,12 +11,13 @@ import static org.hamcrest.core.Is.is;
 public class AlarmTest {
 
     AlarmBuilder builder = new AlarmBuilder();
+    SafetyRange safetyRange = new SafetyRange(15, 25);
 
     @Test
     public void alarm_is_on_when_pressure_is_too_low() {
         Alarm alarm = builder
             .withSensor(FakeSensor.reading(10))
-            .withSafetyRange(new SafetyRange(15, 25))
+            .withSafetyRange(safetyRange)
             .build();
 
         alarm.check();
@@ -28,7 +29,7 @@ public class AlarmTest {
     public void alarm_is_off_when_pressure_is_normal() {
         Alarm alarm = builder
             .withSensor(FakeSensor.reading(20))
-            .withSafetyRange(new SafetyRange(15, 25))
+            .withSafetyRange(safetyRange)
             .build();
 
         alarm.check();
@@ -40,7 +41,7 @@ public class AlarmTest {
     public void alarm_is_on_when_pressure_is_too_high() {
         Alarm alarm = builder
             .withSensor(FakeSensor.reading(30))
-            .withSafetyRange(new SafetyRange(15, 25))
+            .withSafetyRange(safetyRange)
             .build();
 
         alarm.check();
@@ -56,7 +57,7 @@ public class AlarmTest {
 
         Alarm alarm = builder
             .withSensor(FakeSensor.reading(readings))
-            .withSafetyRange(new SafetyRange(15, 25))
+            .withSafetyRange(safetyRange)
             .build();
 
         alarm.check();
