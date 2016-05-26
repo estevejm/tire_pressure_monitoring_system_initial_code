@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 public class AlarmTest {
     @Test
     public void alarm_is_on_when_pressure_is_too_low() {
-        FakeAlarm alarm = new FakeAlarm();
+        FakeAlarm alarm = FakeAlarm.reading(10);
 
         alarm.check();
 
@@ -19,5 +19,14 @@ public class AlarmTest {
         alarm.check();
 
         assertThat(alarm.isAlarmOn(), is(false));
+    }
+
+    @Test
+    public void alarm_is_on_when_pressure_is_too_high() {
+        FakeAlarm alarm = FakeAlarm.reading(30);
+
+        alarm.check();
+
+        assertThat(alarm.isAlarmOn(), is(true));
     }
 }
