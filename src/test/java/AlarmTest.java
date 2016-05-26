@@ -42,12 +42,21 @@ public class AlarmTest {
 
     @Test
     public void alarm_remain_on_after_pressure_is_normal_again() {
+
+
         List<Integer> readings = new ArrayList<Integer>();
         readings.add(10);
         readings.add(20);
 
         FakeSensor sensor = FakeSensor.reading(readings);
-        Alarm alarm = Alarm.withSensorAndSafetyRange(sensor, new SafetyRange(15, 25));
+
+
+        AlarmBuilder builder = new AlarmBuilder();
+
+        builder.withSensor(sensor);
+        builder.withSafetyRange(new SafetyRange(15, 25));
+
+        Alarm alarm = builder.build();
 
         alarm.check();
         alarm.check();
