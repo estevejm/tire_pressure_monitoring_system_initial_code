@@ -25,7 +25,7 @@ public class Alarm {
     }
 
     protected double getNextReading() {
-        return pressureSensor.popNextPressurePsiValue();
+        return pressureSensor.read();
     }
 
     public boolean isAlarmOn() {

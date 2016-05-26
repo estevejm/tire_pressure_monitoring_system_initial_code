@@ -9,7 +9,7 @@ public class PressureSensor implements Sensor {
         return this.popNextPressurePsiValue();
     }
 
-    public double popNextPressurePsiValue() {
+    private double popNextPressurePsiValue() {
         return OFFSET + samplePressure();
     }
 

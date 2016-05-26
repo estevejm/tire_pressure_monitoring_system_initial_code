@@ -14,7 +14,7 @@ public class FakeSensor extends PressureSensor {
     }
 
     @Override
-    public double popNextPressurePsiValue() {
+    public double read() {
         int value = readings.get(index);
         index++;
 
