@@ -14,8 +14,10 @@ public class AlarmTest {
 
     @Test
     public void alarm_is_on_when_pressure_is_too_low() {
-        FakeSensor sensor = FakeSensor.reading(10);
-        Alarm alarm = Alarm.withSensorAndSafetyRange(sensor, new SafetyRange(15, 25));
+        Alarm alarm = builder
+            .withSensor(FakeSensor.reading(10))
+            .withSafetyRange(new SafetyRange(15, 25))
+            .build();
 
         alarm.check();
 
@@ -24,8 +26,10 @@ public class AlarmTest {
 
     @Test
     public void alarm_is_off_when_pressure_is_normal() {
-        FakeSensor sensor = FakeSensor.reading(20);
-        Alarm alarm = Alarm.withSensorAndSafetyRange(sensor, new SafetyRange(15, 25));
+        Alarm alarm = builder
+            .withSensor(FakeSensor.reading(20))
+            .withSafetyRange(new SafetyRange(15, 25))
+            .build();
 
         alarm.check();
 
@@ -34,8 +38,10 @@ public class AlarmTest {
 
     @Test
     public void alarm_is_on_when_pressure_is_too_high() {
-        FakeSensor sensor = FakeSensor.reading(30);
-        Alarm alarm = Alarm.withSensorAndSafetyRange(sensor, new SafetyRange(15, 25));
+        Alarm alarm = builder
+            .withSensor(FakeSensor.reading(30))
+            .withSafetyRange(new SafetyRange(15, 25))
+            .build();
 
         alarm.check();
 
