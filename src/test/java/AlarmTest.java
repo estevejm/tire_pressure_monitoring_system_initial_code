@@ -11,4 +11,13 @@ public class AlarmTest {
 
         assertThat(alarm.isAlarmOn(), is(true));
     }
+
+    @Test
+    public void alarm_is_off_when_pressure_is_normal() {
+        NormalFakeAlarm alarm = new NormalFakeAlarm();
+
+        alarm.check();
+
+        assertThat(alarm.isAlarmOn(), is(false));
+    }
 }
