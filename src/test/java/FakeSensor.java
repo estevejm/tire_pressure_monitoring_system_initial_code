@@ -1,9 +1,8 @@
-import tddmicroexercises.tirepressuremonitoringsystem.PressureSensor;
-
+import tddmicroexercises.tirepressuremonitoringsystem.Sensor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FakeSensor extends PressureSensor {
+public class FakeSensor implements Sensor {
 
     private final List<Integer> readings;
     private int index;
@@ -13,7 +12,6 @@ public class FakeSensor extends PressureSensor {
         this.readings = readings;
     }
 
-    @Override
     public double read() {
         int value = readings.get(index);
         index++;
