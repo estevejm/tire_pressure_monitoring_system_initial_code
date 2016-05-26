@@ -14,7 +14,7 @@ public class AlarmTest {
 
     @Test
     public void alarm_is_off_when_pressure_is_normal() {
-        NormalFakeAlarm alarm = new NormalFakeAlarm();
+        FakeAlarm alarm = FakeAlarm.reading(20);
 
         alarm.check();
 
