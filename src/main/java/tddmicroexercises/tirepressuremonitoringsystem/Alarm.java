@@ -17,7 +17,7 @@ public class Alarm {
     }
 
     public void check() {
-        double psiPressureValue = getPsiPressureValue();
+        double psiPressureValue = getNextReading();
 
         if (isSafe(psiPressureValue)) {
             alarmOn = true;
@@ -28,7 +28,7 @@ public class Alarm {
         return psiPressureValue < LowPressureThreshold || HighPressureThreshold < psiPressureValue;
     }
 
-    protected double getPsiPressureValue() {
+    protected double getNextReading() {
         return pressureSensor.popNextPressurePsiValue();
     }
 
