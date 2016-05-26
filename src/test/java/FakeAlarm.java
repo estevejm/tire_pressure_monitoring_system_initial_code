@@ -1,6 +1,5 @@
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
 
-// todo: change name to failing fake alarm or similar
 public class FakeAlarm extends Alarm {
 
     private int value;
