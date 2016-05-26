@@ -10,6 +10,8 @@ import static org.hamcrest.core.Is.is;
 
 public class AlarmTest {
 
+    AlarmBuilder builder = new AlarmBuilder();
+
     @Test
     public void alarm_is_on_when_pressure_is_too_low() {
         FakeSensor sensor = FakeSensor.reading(10);
@@ -45,8 +47,6 @@ public class AlarmTest {
         List<Integer> readings = new ArrayList<Integer>();
         readings.add(10);
         readings.add(20);
-
-        AlarmBuilder builder = new AlarmBuilder();
 
         Alarm alarm = builder
             .withSensor(FakeSensor.reading(readings))
