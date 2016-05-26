@@ -5,11 +5,13 @@ public class Alarm {
     private final double HighThreshold = 21;
 
     private Sensor sensor;
+    private final SafetyRange safetyRange;
 
     private boolean alarmOn = false;
 
-    private Alarm(Sensor sensor) {
+    public Alarm(Sensor sensor, SafetyRange safetyRange) {
         this.sensor = sensor;
+        this.safetyRange = safetyRange;
     }
 
     public void check() {
@@ -21,7 +23,7 @@ public class Alarm {
     }
 
     private boolean isSafe(double reading) {
-        return reading < LowThreshold || HighThreshold < reading;
+        return this.safetyRange.isSafe(reading);
     }
 
     protected double getNextReading() {
@@ -32,11 +34,11 @@ public class Alarm {
         return alarmOn;
     }
 
-    public static Alarm withSensor(Sensor sensor) {
-        return new Alarm(sensor);
+    public static Alarm withSensor(Sensor sensor, SafetyRange safetyRange) {
+        return new Alarm(sensor, safetyRange);
     }
 
     public static Alarm withDefaultSensor() {
-        return new Alarm(new PressureSensor());
+        return new Alarm(new PressureSensor(), new SafetyRange(17, 21));
     }
 }

@@ -1,5 +1,6 @@
 import org.junit.Test;
 import tddmicroexercises.tirepressuremonitoringsystem.Alarm;
+import tddmicroexercises.tirepressuremonitoringsystem.SafetyRange;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class AlarmTest {
     @Test
     public void alarm_is_on_when_pressure_is_too_low() {
         FakeSensor sensor = FakeSensor.reading(10);
-        Alarm alarm = Alarm.withSensor(sensor);
+        Alarm alarm = Alarm.withSensor(sensor, new SafetyRange(15, 25));
 
         alarm.check();
 
@@ -22,7 +23,7 @@ public class AlarmTest {
     @Test
     public void alarm_is_off_when_pressure_is_normal() {
         FakeSensor sensor = FakeSensor.reading(20);
-        Alarm alarm = Alarm.withSensor(sensor);
+        Alarm alarm = Alarm.withSensor(sensor, new SafetyRange(15, 25));
 
         alarm.check();
 
@@ -32,7 +33,7 @@ public class AlarmTest {
     @Test
     public void alarm_is_on_when_pressure_is_too_high() {
         FakeSensor sensor = FakeSensor.reading(30);
-        Alarm alarm = Alarm.withSensor(sensor);
+        Alarm alarm = Alarm.withSensor(sensor, new SafetyRange(15, 25));
 
         alarm.check();
 
@@ -46,7 +47,7 @@ public class AlarmTest {
         readings.add(20);
 
         FakeSensor sensor = FakeSensor.reading(readings);
-        Alarm alarm = Alarm.withSensor(sensor);
+        Alarm alarm = Alarm.withSensor(sensor, new SafetyRange(15, 25));
 
         alarm.check();
         alarm.check();
