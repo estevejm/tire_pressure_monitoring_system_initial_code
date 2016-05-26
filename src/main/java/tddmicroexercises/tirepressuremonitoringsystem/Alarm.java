@@ -8,10 +8,6 @@ public class Alarm {
 
     private boolean alarmOn = false;
 
-    public Alarm() {
-        this(new PressureSensor());
-    }
-
     private Alarm(PressureSensor pressureSensor) {
         this.pressureSensor = pressureSensor;
     }
@@ -38,5 +34,9 @@ public class Alarm {
 
     public static Alarm withSensor(PressureSensor pressureSensor) {
         return new Alarm(pressureSensor);
+    }
+
+    public static Alarm withDefaultSensor() {
+        return new Alarm(new PressureSensor());
     }
 }
