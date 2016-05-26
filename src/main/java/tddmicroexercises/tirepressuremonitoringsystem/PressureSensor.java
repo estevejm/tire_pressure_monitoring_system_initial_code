@@ -6,10 +6,7 @@ public class PressureSensor {
     public static final double OFFSET = 16;
 
     public double popNextPressurePsiValue() {
-        double pressureTelemetryValue;
-        pressureTelemetryValue = samplePressure();
-
-        return OFFSET + pressureTelemetryValue;
+        return OFFSET + samplePressure();
     }
 
     private static double samplePressure() {
