@@ -4,12 +4,12 @@ public class Alarm {
     private final double LowPressureThreshold = 17;
     private final double HighPressureThreshold = 21;
 
-    private PressureSensor pressureSensor;
+    private Sensor sensor;
 
     private boolean alarmOn = false;
 
-    private Alarm(PressureSensor pressureSensor) {
-        this.pressureSensor = pressureSensor;
+    private Alarm(Sensor sensor) {
+        this.sensor = sensor;
     }
 
     public void check() {
@@ -25,15 +25,15 @@ public class Alarm {
     }
 
     protected double getNextReading() {
-        return pressureSensor.read();
+        return sensor.read();
     }
 
     public boolean isAlarmOn() {
         return alarmOn;
     }
 
-    public static Alarm withSensor(PressureSensor pressureSensor) {
-        return new Alarm(pressureSensor);
+    public static Alarm withSensor(Sensor sensor) {
+        return new Alarm(sensor);
     }
 
     public static Alarm withDefaultSensor() {
