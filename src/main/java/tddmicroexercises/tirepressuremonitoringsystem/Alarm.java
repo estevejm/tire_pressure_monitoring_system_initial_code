@@ -12,19 +12,11 @@ public class Alarm {
     }
 
     public void check() {
-        double reading = getNextReading();
+        double reading = sensor.read();
 
-        if (isSafe(reading)) {
+        if (this.safetyRange.isSafe(reading)) {
             alarmOn = true;
         }
-    }
-
-    private boolean isSafe(double reading) {
-        return this.safetyRange.isSafe(reading);
-    }
-
-    protected double getNextReading() {
-        return sensor.read();
     }
 
     public boolean isAlarmOn() {
