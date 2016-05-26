@@ -38,7 +38,7 @@ public class Alarm {
         return new Alarm(sensor, safetyRange);
     }
 
-    public static Alarm withDefaultSensor() {
+    public static Alarm withDefaultSensorAndSafetyRange() {
         return new Alarm(new PressureSensor(), new SafetyRange(17, 21));
     }
 }
